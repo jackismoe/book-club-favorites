@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class BooksController < ApplicationController
 
     before do
         require_login
