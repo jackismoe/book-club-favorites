@@ -1,0 +1,8 @@
+<h2>Books added by <%= @user.username %></h2>
+<p>View <%= @user.username %>'s Favorite books <a href="/<%= @user.slug %>/favorites">here.</a>
+
+<ul>
+<% @books.each do |book| %>
+    <li> <a href="/books/<%=book.id%>"><%= book.name %></a></li>
+<% end %>
+</ul>

@@ -11,8 +11,8 @@
   <nav>
     <ul>
     <% if logged_in? %>
-        <li><a href="/books">All Books</a></li>
-        <li><a href="/<%= current_user.id %>/favorite_list">Favorite List</a></li>
+    <li><a href="/books">All Books</a></li>
+        <li><a href="/<%= current_user.slug %>/favorites">Favorite List</a></li>
         <li><a href="/books/new">Add Book</a></li>
         <li><a href="/">About</a></li>
         <li><a href="/logout">Log Out</a></li>

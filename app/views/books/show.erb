@@ -1,0 +1,21 @@
+<h2><%= @book.name.gsub(/\n/, '<br?>') %></h2><br><br>
+Author:<%= @book.author.gsub(/\n/, '<br/>') %><br><br><br>
+Genre:<i><%= @book.genre %></i><br><br>
+Created by: <a href="/<%= @user.slug %>"><%= @user.username %></a><br><br>
+
+<form method="POST" action="/favorites/<%= @book.id %>">
+<% if current_user.books.include?(@book) %>
+    <input type="submit" name="action" value="Remove from my Favorites">
+<% else %>
+    <inout type="submit" name="action" values"Add to my Favorites">
+<% end %>
+</form>
+<br><br>
+
+<% if @book.user_id == current_user.id %>
+<a href="/books/<%= @book.id %>/edit"><button type="button">Edit Book</button><br><br>
+<form method="POST" action="/books/<%= @book.id %>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Book">
+    </form>
+    <% end %>
