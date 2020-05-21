@@ -23,12 +23,14 @@ class UsersController < ApplicationController
     end
 
     get '/favorites/:id' do
+        @user = User.find_by(id: params[:id])
         if params[:action] == "Add to my Favorites"
             @book = Book.find(params[:id])
             current_user.books << @book
         elsif params[:action] == "Remove from my Favorites"
             @favorite_list = FavoriteList.find_by(book_id: params[:id], user_id: current_user.id)
             @favorite_list.delete
+            redirect "/"
         end
         redirect "/#{current_user.slug}/favorites"
     end

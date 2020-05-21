@@ -14,3 +14,9 @@ Contributing:
 
 Bug reports and pull requests are welcone on GitHub at https://github.com/dan-dc25/book-club-favorites
 
+License
+The gem is available as open source under the terms of the MIT License.(https://opensource.org/licenses/MIT)
+
+Code of Conduct
+
+Everyone interacting in the Book-Club-Favorites project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.

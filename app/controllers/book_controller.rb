@@ -37,7 +37,7 @@ class BooksController < ApplicationController
     end
 
     delete '/books/:id' do
-        @book = Book.find_by(params[:id])
+        @book = Book.find(params[:id])
         if @book.user_id == current_user.id
             @book.delete
             redirect "/books"
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
         @book = Book.find(params[:id])
         @user = User.find(@book.user_id)
         if @book.user_id == current_user.id
-            erb :"recipes/edit"
+            erb :"books/edit"
         else
             redirect "/books/#{@book.id}"
         end
@@ -60,13 +60,10 @@ class BooksController < ApplicationController
             @book.name = params[:name]
             @book.author = params[:author]
             @book.genre = params[:genre]
-
-            if @book.save
-                redirect "/books/#{@book.id}"
-            else
-                flash[:message] = "All fields are requried. Please input name, author, and genre."
-                redirect "/books/#{@book.id}/edit"
-            end
+        else
+            flash[:message] = "All fields are requried. Please input name, author, and genre."
+            redirect "/books/#{@book.id}/edit"
         end
+            redirect "/"
     end
 end
