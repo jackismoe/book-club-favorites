@@ -1,0 +1,33 @@
+<h2>Edit your book</h2>
+
+<form action="/books/<%=@book.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <% if flash.has?(:message) %>
+        <%= flash[:message] %> <br><br>
+    <% end %>
+
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" value="<%= @book.name %>" required><br><br>
+    
+    <label for="author">Author:</label><br>
+    <input type="text" name="author" value="<%= @book.author %>" required><br><br>
+
+    <laber for="genre">Genre:</label><br><br>
+    <input type="checkbox" id="self-development" value="Self Development">
+    <label for="self-development">Self Development</label><br>
+    <input type="checkbox" id="memoir" value="Memoir">
+    <label for="memoir">Memoir</label><br>
+    <input type="checkbox" id="novel" value="Novel">
+    <label for="novel">Novel</label><br>
+    <input type="checkbox" id="fiction" value-="Fiction">
+    <label for="fiction">Fiction</label><br>
+    <input type="checkbox" id="non-fiction" value="Non Fiction">
+    <label for="non-fiction">Non Fiction</label><br>
+    <input type="checkbox" id="mystery" value="Mystert">
+    <label for="mystery">Mystery</label><br>
+    <input type="checkbox" id="romance" value="Romance">
+    <label for="romance">Romance</label><br>
+
+    <input type="submit" id="submit" value="Submit Edits">
+</form>

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     has_many :books, through: :favorite_lists
 
     def slug
-        self.usernam
+        self.username
     end
 
     def self.find_by_slug(slug)
