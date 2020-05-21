@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     end
 
     post '/signup'do
-        user = User.create(username: params[:username], email: params[:email], password: params[:password])
+        user = User.create(params)
         if user.save
             session[:user_id] = user.id
             redirect "/books"
@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
             user.errors.full_messages.each {|e| flash[:message] = e}
             redirect "/signup"
         end
+        binding.pry
     end
 
     get '/login' do
