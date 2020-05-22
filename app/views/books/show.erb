@@ -5,12 +5,12 @@ Created by: <a href="/<%= @user.slug %>"><%= @user.username %></a><br><br>
 
 <form method="POST" action="/favorites/<%= @book.id %>">
 <% if current_user.books.include?(@book) %>
-    <input type="submit" name="action" value="Remove from my Favorites">
-<% elsif !current_user.books.include?(@book) %>
-    <input type="submit" name="action" values="Add to my Favorites">
+    <input type="submit" name="remove" value="Remove from my Favorites">
+<% elsif !current_uer.books.include?(@book) %>
+    <input type="submit" name="action" value="ADd to my Favorites">
 <% else %>
-    <input type="submit" name="delete" value="DELETE">
-    <% end %>
+    <input type="submit" name="action" value="DELETE">
+<% end %>
 </form>
 <br><br>
 

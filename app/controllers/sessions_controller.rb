@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
             user.errors.full_messages.each {|e| flash[:message] = e}
             redirect "/signup"
         end
-        binding.pry
     end
 
     get '/login' do

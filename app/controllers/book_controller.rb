@@ -21,7 +21,7 @@ class BooksController < ApplicationController
             current_user.books << @book
             redirect "/books/#{@book.id}" 
         else
-            flash[:message] = "All fields are required. Please inout name, author, and genre."
+            flash[:message] = "All fields are required. Please input name, author, and genre."
             redirect "/books/new"
         end
     end
@@ -30,7 +30,7 @@ class BooksController < ApplicationController
         @book = Book.find_by(id: params[:id])
         if @book 
             @user = User.find(@book.user_id)
-            erb :"books/show"
+           erb :"/books/show"
         else 
             redirect "/books"
         end
@@ -60,10 +60,11 @@ class BooksController < ApplicationController
             @book.name = params[:name]
             @book.author = params[:author]
             @book.genre = params[:genre]
+            @book.save
         else
-            flash[:message] = "All fields are requried. Please input name, author, and genre."
+            flash[:message] = "All fields are required. Please input name, author, and genre."
             redirect "/books/#{@book.id}/edit"
         end
-            redirect "/"
+        redirect "books/show"
     end
 end
