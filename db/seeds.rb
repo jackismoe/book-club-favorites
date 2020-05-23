@@ -1,3 +1,4 @@
+Book.destroy
 marc = User.create(username: "mrusso", email: "mrusso@test.com", password: "password")
 sandi = User.create(username: "Sandi", email: "sandi@test.com", password: "password")
 leadershift = Book.create(name: "Leadershift", author: "John Maxwell", genre: "self-development")
