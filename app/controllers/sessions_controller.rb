@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+    #Renders form for user sign up
     get '/signup' do
         if !logged_in?
             erb :"sessions/signup"
@@ -8,6 +9,7 @@ class SessionsController < ApplicationController
         end
     end
 
+    #Submits form for user sign up. If successful takes user to welcome page. If not, displays error and back to sign up page. 
     post '/signup'do
         user = User.create(params)
         if user.save
@@ -19,6 +21,7 @@ class SessionsController < ApplicationController
         end
     end
 
+    #Renders user log in page. If user is not logged in, resirects user ot log in page.
     get '/login' do
         if !logged_in?
             erb :"sessions/login"
@@ -27,6 +30,7 @@ class SessionsController < ApplicationController
         end
     end
 
+    #Submits log in form and takes user to welcome page. If  not successful, displays error massage.
     post '/login' do
         user = User.find_by(:username => params[:username])
 	   
@@ -39,6 +43,7 @@ class SessionsController < ApplicationController
         end
     end
 
+    #logs user out
     get '/logout' do
         session.destroy
         redirect '/'
