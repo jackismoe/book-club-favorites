@@ -28,6 +28,7 @@ class BooksController < ApplicationController
     
     get '/books/:id' do
         @book = Book.find_by(id: params[:id])
+        binding.pry
         if @book 
             @user = User.find(@book.user_id)
            erb :"/books/show"
